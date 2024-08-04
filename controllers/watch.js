@@ -12,7 +12,7 @@ import watch from "../Models/watch.js";
             description} = req.body
 
 
-        const newwatch = new watch({
+            const newwatch = new watch({
               name:name,
               company: company,
               image:image,
