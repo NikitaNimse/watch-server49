@@ -1,4 +1,5 @@
-import watch from "../Models/watch.js";
+
+import Watch from "./../Models/watch.js";
 
 
 
@@ -12,7 +13,7 @@ import watch from "../Models/watch.js";
             description} = req.body
 
 
-            const newwatch = new watch({
+            const newwatch = new Watch({
               name:name,
               company: company,
               image:image,
@@ -31,7 +32,7 @@ import watch from "../Models/watch.js";
 
      const getwatches = async (req,res)=>{
 
-       const allwatches = await watch.find().sort({createdAt: -1})
+       const allwatches = await Watch.find().sort({createdAt: -1})
 
         res.json({
           successs:true,
@@ -42,7 +43,7 @@ import watch from "../Models/watch.js";
 
      const getwatchId = async (req,res)=>{
         const {id}=req.params
-       const watch = await watch.findById(id)
+       const watch = await Watch.findById(id)
          res.json({
          successs:watch ? true : false,
          data: watch ? watch : null,
@@ -61,7 +62,7 @@ import watch from "../Models/watch.js";
       
          const {id} = req.params
 
-        await watch.updateOne({_id:id},{
+        await Watch.updateOne({_id:id},{
           $set:{
             name:name,
             company:company,
@@ -71,7 +72,7 @@ import watch from "../Models/watch.js";
           }
          })
 
-         const Updatedwatch = await watch.findById(id)
+         const Updatedwatch = await Watch.findById(id)
 
          res.json({
           success:true,
@@ -84,7 +85,7 @@ import watch from "../Models/watch.js";
 
      const deletewatchID = async(req,res)=>{
         const {id} = req.params
-         await watch.deleteOne({
+         await Watch.deleteOne({
           _id:id
          })
       

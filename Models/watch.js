@@ -10,7 +10,7 @@ const watchSchema = new Schema({
     timestamps:true
 })
 
-const watch =model("watch",watchSchema)
+const Watch =model("watch",watchSchema)
 
 
-export default watch
+export default Watch
